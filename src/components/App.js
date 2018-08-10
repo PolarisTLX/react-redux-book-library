@@ -9,32 +9,36 @@ import store from '../store';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../App.css';
-// import Footer from './Footer';
-// import AddTodo from '../containers/AddTodo';
-// import VisibleTodoList from '../containers/VisibleTodoList';
 
-class App extends Component {
-  render() {
-    return (
+const App = () => {
+  return (
       <Provider store={store}>
         <div className="App">
           <AppNavbar />
-          <h1>Book Store</h1>
           <Container>
-          <BookModal />
-          <BookList />
-        </Container>
+            <BookModal />
+            <BookList />
+          </Container>
         </div>
       </Provider>
-    );
-  }
-}
-// const App = () => (
-//   <div>
-//     <AddTodo />
-//     <VisibleTodoList />
-//     <Footer />
-//   </div>
-// );
+  );
+};
+
+// class App extends Component {
+//   render() {
+//     return (
+//       <Provider store={store}>
+//         <div className="App">
+//           <AppNavbar />
+//           <Container>
+//           <BookModal />
+//           <BookList />
+//         </Container>
+//         </div>
+//       </Provider>
+//     );
+//   }
+// }
+
 
 export default App;

@@ -25,12 +25,12 @@ class AppNavbar extends Component {
       <div>
         <Navbar color="dark" dark expand="sm" className="mb-5">
           <Container>
-            <NavbarBrand href="/">Shopping List</NavbarBrand>
+            <NavbarBrand href="/">Book Store</NavbarBrand>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="ml-auto" navbar>
                 <NavItem>
-                  <NavLink href="https://github.com/PolarisTLX/MERN-Stack-ShoppingList">GitHub Repository</NavLink>
+                  <NavLink href="https://github.com/PolarisTLX/redux-book-store"target="_">GitHub Repository</NavLink>
                 </NavItem>
               </Nav>
             </Collapse>

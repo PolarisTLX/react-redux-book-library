@@ -48,6 +48,7 @@ class BookList extends Component {
   }
 }
 
+
 BookList.propTypes = {
   getBooks: PropTypes.func.isRequired,
   book: PropTypes.object.isRequired
