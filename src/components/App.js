@@ -11,13 +11,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../App.css';
 
 const App = () => {
+  const categories = ["Action", "Biography", "History", "Horror", "Kids", "Learning", "Sci-Fi"];
   return (
       <Provider store={store}>
         <div className="App">
           <AppNavbar />
           <Container>
-            <BookModal />
-            <BookList />
+            <BookModal categories={categories}/>
+            <BookList categories={categories}/>
           </Container>
         </div>
       </Provider>

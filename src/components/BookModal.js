@@ -21,8 +21,6 @@ class BookModal extends Component {
     category: 'Action'
   }
 
-  categories = ["Action", "Biography", "History", "Horror", "Kids", "Learning", "Sci-Fi"];
-
   toggle = () => {
     this.setState({
       modal: !this.state.modal
@@ -94,7 +92,7 @@ class BookModal extends Component {
                   id="category"
                   onChange={this.onChange}
                 >
-                {this.categories.map(cat => <option key={cat} value={cat} selected={this.state.category == cat ? true : false}>{cat}</option>)}
+                {this.props.categories.map(cat => <option key={cat} value={cat} selected={this.state.category == cat ? true : false}>{cat}</option>)}
                 </Input>
                 <Button
                   color="dark"

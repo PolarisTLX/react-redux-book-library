@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Container, ListGroup, ListGroupItem, Button } from 'reactstrap';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import PropTypes from 'prop-types';
 
 class Book extends Component {
 
@@ -15,3 +14,5 @@ class Book extends Component {
 }
 
 export default Book;
+
+//NOTE: Change to functional component?
