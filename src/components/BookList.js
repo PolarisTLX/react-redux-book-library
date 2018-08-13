@@ -13,11 +13,7 @@ class BookList extends Component {
     this.props.getBooks();
   };
 
-  // onDeleteClick = (id) => (e) => {
   onDeleteClick = (id) => {
-    console.log(id);
-    // console.log(e);
-    console.log(this.props.deleteBook(id));
     this.props.deleteBook(id);
   };
 
@@ -28,7 +24,19 @@ class BookList extends Component {
         <ListGroup>
           <TransitionGroup className="book-list">
             {books.map(({ id, name, author, category}) => (
-              <Book key={id} id={id} name={name} author={author} category={category} onDeleteClick={this.onDeleteClick} />
+              <CSSTransition key={id} timeout={500} classNames="fade">
+                <ListGroupItem>
+                  <Button
+                    className="remove-btn"
+                    color="danger"
+                    size="sm"
+                    onClick={() => this.onDeleteClick(id)}
+                  >
+                    &times;
+                  </Button>
+                  <Book name={name} author={author} category={category} />
+                </ListGroupItem>
+              </CSSTransition>
             ))}
           </TransitionGroup>
         </ListGroup>
@@ -36,7 +44,6 @@ class BookList extends Component {
     );
   }
 }
-
 
 BookList.propTypes = {
   getBooks: PropTypes.func.isRequired,
@@ -47,22 +54,9 @@ const mapStateToProps = (state) => ({
   library: state.library
 });
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    deleteBook: (id) => {
-      dispatch(deleteBook(id))
-    },
-    getBooks: () => {
-      dispatch(getBooks())
-    }
+export default connect(mapStateToProps,
+  { getBooks,
+    addBook,
+    deleteBook
   }
-};
-
-// export default connect(mapStateToProps,
-//   { getBooks,
-//     addBook,
-//     deleteBook
-//   }
-// )(BookList);
-
-export default connect(mapStateToProps, mapDispatchToProps)(BookList);
+)(BookList);
