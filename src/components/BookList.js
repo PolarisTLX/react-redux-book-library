@@ -5,6 +5,7 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { connect } from 'react-redux';
 import { getBooks, addBook, deleteBook } from '../actions/bookActions';
 import PropTypes from 'prop-types';
+import Book from './Book';
 
 class BookList extends Component {
 
@@ -12,34 +13,22 @@ class BookList extends Component {
     this.props.getBooks();
   };
 
+  // onDeleteClick = (id) => (e) => {
   onDeleteClick = (id) => {
+    console.log(id);
+    // console.log(e);
+    console.log(this.props.deleteBook(id));
     this.props.deleteBook(id);
   };
 
   render() {
-    const { books } = this.props.book;
+    const { books } = this.props.library;
     return (
       <Container>
         <ListGroup>
           <TransitionGroup className="book-list">
             {books.map(({ id, name, author, category}) => (
-              <CSSTransition key={id} timeout={500} classNames="fade">
-
-                <ListGroupItem>
-
-                  <Button
-                    className="remove-btn"
-                    color="danger"
-                    size="sm"
-                    onClick={this.onDeleteClick.bind(this, id)}
-                  >
-                    &times;
-                  </Button>
-
-                  <span>{name}</span> - <span>{author}</span> - <span>{category}</span>
-                </ListGroupItem>
-
-              </CSSTransition>
+              <Book key={id} id={id} name={name} author={author} category={category} onDeleteClick={this.onDeleteClick} />
             ))}
           </TransitionGroup>
         </ListGroup>
@@ -51,16 +40,29 @@ class BookList extends Component {
 
 BookList.propTypes = {
   getBooks: PropTypes.func.isRequired,
-  book: PropTypes.object.isRequired
+  library: PropTypes.object.isRequired
 }
 
 const mapStateToProps = (state) => ({
-  book: state.book
+  library: state.library
 });
 
-export default connect(mapStateToProps,
-  { getBooks,
-    addBook,
-    deleteBook
+const mapDispatchToProps = (dispatch) => {
+  return {
+    deleteBook: (id) => {
+      dispatch(deleteBook(id))
+    },
+    getBooks: () => {
+      dispatch(getBooks())
+    }
   }
-)(BookList);
+};
+
+// export default connect(mapStateToProps,
+//   { getBooks,
+//     addBook,
+//     deleteBook
+//   }
+// )(BookList);
+
+export default connect(mapStateToProps, mapDispatchToProps)(BookList);
