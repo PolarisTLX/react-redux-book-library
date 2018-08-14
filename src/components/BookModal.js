@@ -14,18 +14,22 @@ import { addBook } from '../actions/bookActions';
 import uuid from 'uuid';
 
 class BookModal extends Component {
-  state = {
-    modal: false,
-    name: '',
-    author: '',
-    category: 'Action'
+  constructor(props) {
+    super(props)
+    this.state = {
+      modal: false,
+      name: '',
+      author: '',
+      category: 'Action'
+    }
+    this.toggleModal = toggleModal.bind(this)
   }
 
-  toggle = () => {
-    this.setState({
-      modal: !this.state.modal
-    });
-  };
+    // toggle = () => {
+    //   this.setState({
+    //     modal: !this.state.modal
+    //   });
+    // };
 
   onChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
@@ -45,7 +49,7 @@ class BookModal extends Component {
     this.props.addBook(newBook);
 
     // Close modal:
-    this.toggle();
+    this.toggleModal();
   };
 
   render() {
@@ -54,16 +58,16 @@ class BookModal extends Component {
         <Button
           color="dark"
           style={{marginBottom: '2rem'}}
-          onClick={this.toggle}
+          onClick={this.toggleModal}
         >
           Add Book
         </Button>
 
         <Modal
           isOpen={this.state.modal}
-          toggle={this.toggle}
+          toggle={this.toggleModal}
         >
-          <ModalHeader toggle={this.toggle}>
+          <ModalHeader toggle={this.toggleModal}>
             Add book to your library
           </ModalHeader>
           <ModalBody>
@@ -109,6 +113,12 @@ class BookModal extends Component {
     );
   }
 }
+
+export function toggleModal() {
+  this.setState({
+    modal: !this.state.modal
+  });
+};
 
 
 const mapStateToProps = state => ({
