@@ -52,7 +52,7 @@ class BookModal extends Component {
     return (
       <div>
         <Button
-          color="dark"
+          color="primary"
           style={{marginBottom: '2rem'}}
           onClick={this.toggle}
         >
@@ -67,10 +67,11 @@ class BookModal extends Component {
             Add book to your library
           </ModalHeader>
           <ModalBody>
-            <Form onSubmit={this.onSubmit}>
+            <Form onSubmit={this.onSubmit} className="form">
               <FormGroup>
                 <Label for="title">Title:</Label>
                 <Input
+                  color="black"
                   type="text"
                   name="name"
                   id="title"

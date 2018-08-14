@@ -17,7 +17,9 @@ const App = () => {
         <div className="App">
           <AppNavbar />
           <Container>
-            <BookModal categories={categories}/>
+            <Container>
+              <BookModal categories={categories}/>
+            </Container>
             <BookList categories={categories}/>
           </Container>
         </div>

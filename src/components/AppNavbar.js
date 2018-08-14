@@ -23,7 +23,7 @@ class AppNavbar extends Component {
   render() {
     return (
       <div>
-        <Navbar color="dark" dark expand="sm" className="mb-5">
+        <Navbar color="white" primary expand="sm" className="mb-5">
           <Container>
             <NavbarBrand href="/">Book Store</NavbarBrand>
             <NavbarToggler onClick={this.toggle} />

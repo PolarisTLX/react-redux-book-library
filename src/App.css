@@ -1,6 +1,37 @@
+.form-control::-webkit-input-placeholder { color: rgb(180, 180, 180); }  /* WebKit, Blink, Edge */
+.form-control:-moz-placeholder { color: rgb(180, 180, 180); }  /* Mozilla Firefox 4 to 18 */
+.form-control::-moz-placeholder { color: rgb(180, 180, 180); }  /* Mozilla Firefox 19+ */
+.form-control:-ms-input-placeholder { color: rgb(180, 180, 180); }  /* Internet Explorer 10-11 */
+.form-control::-ms-input-placeholder { color: rgb(180, 180, 180); }  /* Microsoft Edge */
+
+body {
+  background-color: rgb(240, 240, 240);
+}
+
+
+.navbar-toggler {
+ border-color: rgb(66,139,202);
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(66,139,202)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+ /*background-image with hexcode needed to change color of three lines (#FFFFFF is white) */
+}
+
+#category-select {
+  margin-bottom: 10px;
+}
+
+.book-image {
+  float: right;
+  width: 100px;
+  height: 150px;
+}
+
 .remove-btn {
   margin-right: 10px;
   float: left;
+  padding: 4px 11px;
 }
 
 .fade-enter {

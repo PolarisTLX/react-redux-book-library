@@ -29,7 +29,7 @@ class BookList extends Component {
     const { books } = this.props.library;
     const catFilter = this.props.catFilter.filter;
     return (
-      <Container>
+      <Container style={{marginBottom: "20px"}}>
         <CategoryFilter categories={['All Categories',...this.props.categories]} onChange={this.handleFilterChange}/>
         <ListGroup>
           <TransitionGroup className="book-list">
@@ -38,12 +38,12 @@ class BookList extends Component {
                 <ListGroupItem>
                   <Book name={name} author={author} category={category} />
                   <Button
-                    className="remove-btn"
-                    color="danger"
-                    size="sm"
-                    onClick={() => this.onDeleteClick(id)}
-                    >
-                      ⨉  
+                  className="remove-btn"
+                  color="dark"
+                  size="sm"
+                  onClick={() => this.onDeleteClick(id)}
+                  >
+                  ⨉
                   </Button>
                   <EditModal categories={this.props.categories} id={id} name={name} author={author} category={category} />
                 </ListGroupItem>

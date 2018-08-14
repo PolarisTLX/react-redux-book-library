@@ -54,8 +54,10 @@ class EditModal extends Component {
     return (
       <div>
         <Button
-          color="dark"
+          class="edit-button"
+          color="medium"
           style={{marginBottom: '2rem'}}
+          size="sm"
           onClick={this.toggle}
         >
           🖉
