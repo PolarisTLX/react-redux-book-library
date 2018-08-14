@@ -55,11 +55,11 @@ class EditModal extends Component {
         <Button
           className="edit-button"
           color="medium"
-          style={{marginBottom: '2rem'}}
+          style={{marginBottom: '2rem', fontSize: '1.5rem'}}
           size="sm"
           onClick={this.toggle}
         >
-          🖉
+          &#x270E;
         </Button>
 
         <Modal

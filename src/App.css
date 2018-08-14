@@ -31,7 +31,14 @@ body {
 .remove-btn {
   margin-right: 10px;
   float: left;
-  padding: 4px 11px;
+  padding: 0px 10px;
+  font-size: 1.5rem;
+}
+
+.edit-button {
+  padding: 0px 7px;
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
 }
 
 .fade-enter {
