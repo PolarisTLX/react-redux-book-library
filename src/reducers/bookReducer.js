@@ -1,5 +1,5 @@
 import uuid from 'uuid';
-import { GET_BOOKS, ADD_BOOK, DELETE_BOOK } from '../actions/types';
+import { GET_BOOKS, ADD_BOOK, UPDATE_BOOK, DELETE_BOOK } from '../actions/types';
 
 const initialState = {
   books: [
@@ -23,6 +23,14 @@ export default function(state = initialState, action) {
         ...state,
         books: [action.payload, ...state.books]
       };
+    case UPDATE_BOOK:
+      const updatedBooks = state.books.map(book => {
+        if(book.id === action.payload.id){
+          return { ...book, ...action.payload}
+        }
+        return book
+      })
+      return { books: updatedBooks }
     case DELETE_BOOK:
       return {
         ...state,
