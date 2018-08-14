@@ -1,41 +1,53 @@
-.App {
-  text-align: center;
+.form-control::-webkit-input-placeholder { color: rgb(180, 180, 180); }  /* WebKit, Blink, Edge */
+.form-control:-moz-placeholder { color: rgb(180, 180, 180); }  /* Mozilla Firefox 4 to 18 */
+.form-control::-moz-placeholder { color: rgb(180, 180, 180); }  /* Mozilla Firefox 19+ */
+.form-control:-ms-input-placeholder { color: rgb(180, 180, 180); }  /* Internet Explorer 10-11 */
+.form-control::-ms-input-placeholder { color: rgb(180, 180, 180); }  /* Microsoft Edge */
+
+body {
+  background-color: rgb(240, 240, 240);
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+
+.navbar-toggler {
+ border-color: rgb(66,139,202);
 }
 
-.App-header {
-  background-color: #222;
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(66,139,202)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+ /*background-image with hexcode needed to change color of three lines (#FFFFFF is white) */
+}
+
+#category-select {
+  margin-bottom: 10px;
+}
+
+.book-image {
+  float: right;
+  width: 100px;
   height: 150px;
-  padding: 20px;
-  color: white;
 }
 
-.App-title {
-  font-size: 1.5em;
+.remove-btn {
+  margin-right: 10px;
+  float: left;
+  padding: 4px 11px;
 }
 
-.App-intro {
-  font-size: large;
+.fade-enter {
+  opacity: 0.01;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.fade-enter.active {
+  opacity: 1;
+  transition: opacity 1000ms ease-in;
 }
 
-.Todo-App {
-  display: inline-block;
-  text-align: left;
+.fade-exit {
+  opacity: 1;
 }
 
-ul {
-  padding: 0px;
-}
-
-li {
-  list-style-type: none;
+.fade-exit.active {
+  opacity: 0.01;
+  transition: opacity 1000ms ease-in;
 }
