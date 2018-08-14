@@ -92,8 +92,9 @@ class BookModal extends Component {
                   name="category"
                   id="category"
                   onChange={this.onChange}
+                  value={this.state.category}
                 >
-                {this.props.categories.map(cat => <option key={cat} value={cat} selected={this.state.category == cat ? true : false}>{cat}</option>)}
+                {this.props.categories.map(cat => <option key={cat} value={cat}>{cat}</option>)}
                 </Input>
                 <Button
                   color="dark"

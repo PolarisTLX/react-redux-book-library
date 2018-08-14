@@ -7,7 +7,7 @@ const initialState = {
 export default function(state = initialState, action) {
   switch(action.type) {
     case CHANGE_FILTER:
-      if (action.payload == 'All Categories') {
+      if (action.payload === 'All Categories') {
         return initialState;
       } else {
         return {

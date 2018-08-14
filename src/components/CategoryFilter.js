@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import {
-  Label,
-  Input
-} from 'reactstrap';
+import { Input } from 'reactstrap';
 
 class CategoryFilter extends Component {
   state = {
@@ -11,9 +8,15 @@ class CategoryFilter extends Component {
 
   render() {
     return (
-      <Input type="select" name="category-select" id="category-select" onChange={this.props.onChange}>
+      <Input
+        type="select"
+        name="category-select"
+        id="category-select"
+        onChange={this.props.onChange}
+        value={this.state.selectedCategory}
+        >
         {this.props.categories.map(cat =>
-          <option key={cat} value={cat} selected={this.state.selectedCategory == cat ? true : false}>{cat}</option>
+          <option key={cat} value={cat}>{cat}</option>
         )}
       </Input>
     )
