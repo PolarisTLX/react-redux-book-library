@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import AppNavbar from './AppNavbar';
 import BookList from './BookList';
 import BookModal from './BookModal';
