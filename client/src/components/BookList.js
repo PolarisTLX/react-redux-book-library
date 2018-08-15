@@ -17,11 +17,11 @@ class BookList extends Component {
     this.props.getBooks();
   };
 
-  onDeleteClick = (id) => {
+  onDeleteClick = id => {
     this.props.deleteBook(id);
   };
 
-  handleFilterChange = (e) => {
+  handleFilterChange = e => {
     this.props.changeFilter(e.target.value);
   }
 
@@ -35,19 +35,19 @@ class BookList extends Component {
         <CategoryFilter selectedCategory={selectedFilter} categories={['All Categories',...this.props.categories]} onChange={this.handleFilterChange}/>
         <ListGroup>
           <TransitionGroup className="book-list">
-            {books.filter(book => catFilter.includes(book.category)).map(({ id, name, author, category}) => (
-              <CSSTransition key={id} timeout={500} classNames="fade">
+            {books.filter(book => catFilter.includes(book.category)).map(({ _id, name, author, category}) => (
+              <CSSTransition key={_id} timeout={500} classNames="fade">
                 <ListGroupItem>
                   <Book name={name} author={author} category={category} />
                   <Button
                   className="remove-btn"
                   color="dark"
                   size="sm"
-                  onClick={() => this.onDeleteClick(id)}
+                  onClick={() => this.onDeleteClick(_id)}
                   >
                     &times;
                   </Button>
-                  <EditModal categories={this.props.categories} id={id} name={name} author={author} category={category} />
+                  <EditModal categories={this.props.categories} _id={_id} name={name} author={author} category={category} />
                 </ListGroupItem>
               </CSSTransition>
             ))}

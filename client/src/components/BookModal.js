@@ -10,14 +10,15 @@ import {
   Input
 } from 'reactstrap';
 import { connect } from 'react-redux';
-import { updateBook } from '../actions/bookActions';
+import { addBook } from '../actions/bookActions';
+// import uuid from 'uuid';
 
-class EditModal extends Component {
+class BookModal extends Component {
   state = {
     modal: false,
-    name: this.props.name,
-    author: this.props.author,
-    category: this.props.category
+    name: '',
+    author: '',
+    category: 'Action'
   }
 
   toggle = () => {
@@ -33,17 +34,15 @@ class EditModal extends Component {
   onSubmit = (event) => {
     event.preventDefault();
 
-    const modifiedBook = {
+    const newBook = {
       // id: uuid(),
-      id: this.props.id,
       name: this.state.name,
       author: this.state.author,
       category: this.state.category
     }
 
-    // Edit book via updateBook action:
-    // this.props.addBook(newBook);
-    this.props.updateBook(modifiedBook);
+    // Add book via addBook action:
+    this.props.addBook(newBook);
 
     // Close modal:
     this.toggle();
@@ -53,12 +52,11 @@ class EditModal extends Component {
     return (
       <div>
         <Button
-          className="edit-button"
-          color="medium"
-          size="sm"
+          color="primary"
+          style={{marginBottom: '2rem'}}
           onClick={this.toggle}
         >
-          &#x270E;
+          Add Book
         </Button>
 
         <Modal
@@ -66,18 +64,18 @@ class EditModal extends Component {
           toggle={this.toggle}
         >
           <ModalHeader toggle={this.toggle}>
-            Edit your existing book from your library
+            Add book to your library
           </ModalHeader>
           <ModalBody>
-            <Form onSubmit={this.onSubmit}>
+            <Form onSubmit={this.onSubmit} className="form">
               <FormGroup>
                 <Label for="title">Title:</Label>
                 <Input
+                  color="black"
                   type="text"
                   name="name"
                   id="title"
                   placeholder="Example: Lord of The Rings"
-                  value={this.state.name}
                   onChange={this.onChange}
                 />
                 <Label for="author">Author:</Label>
@@ -86,7 +84,6 @@ class EditModal extends Component {
                   name="author"
                   id="author"
                   placeholder="Example: J.R. Tolkien"
-                  value={this.state.author}
                   onChange={this.onChange}
                 />
                 <Label for="category">Category:</Label>
@@ -104,7 +101,7 @@ class EditModal extends Component {
                   style={{marginTop: '2rem'}}
                   block
                 >
-                  Edit Book
+                  Add Book
                 </Button>
               </FormGroup>
             </Form>
@@ -120,4 +117,4 @@ const mapStateToProps = state => ({
   book: state.book
 });
 
-export default connect(mapStateToProps, { updateBook })(EditModal);
+export default connect(mapStateToProps, { addBook })(BookModal);
