@@ -28,9 +28,11 @@ class BookList extends Component {
   render() {
     const { books } = this.props.library;
     const catFilter = this.props.catFilter.filter;
+    const selectedFilter = catFilter.length > 1 ? 'All Categories' : catFilter[0]
+
     return (
       <Container style={{marginBottom: "20px"}}>
-        <CategoryFilter categories={['All Categories',...this.props.categories]} onChange={this.handleFilterChange}/>
+        <CategoryFilter selectedCategory={selectedFilter} categories={['All Categories',...this.props.categories]} onChange={this.handleFilterChange}/>
         <ListGroup>
           <TransitionGroup className="book-list">
             {books.filter(book => catFilter.includes(book.category)).map(({ id, name, author, category}) => (
@@ -43,7 +45,7 @@ class BookList extends Component {
                   size="sm"
                   onClick={() => this.onDeleteClick(id)}
                   >
-                  ⨉
+                    &times;
                   </Button>
                   <EditModal categories={this.props.categories} id={id} name={name} author={author} category={category} />
                 </ListGroupItem>

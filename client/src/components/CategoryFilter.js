@@ -3,8 +3,16 @@ import { Input } from 'reactstrap';
 
 class CategoryFilter extends Component {
   state = {
-    selectedCategory: 'All'
+    selectedCategory: this.props.selectedCategory
   }
+
+  handleChange = (event) => {
+    this.setState({
+      selectedCategory: event.target.value
+    });
+    this.props.onChange(event);
+  }
+
 
   render() {
     return (
@@ -12,7 +20,7 @@ class CategoryFilter extends Component {
         type="select"
         name="category-select"
         id="category-select"
-        onChange={this.props.onChange}
+        onChange={this.handleChange}
         value={this.state.selectedCategory}
         >
         {this.props.categories.map(cat =>

@@ -55,7 +55,6 @@ class EditModal extends Component {
         <Button
           className="edit-button"
           color="medium"
-          style={{marginBottom: '2rem'}}
           size="sm"
           onClick={this.toggle}
         >
