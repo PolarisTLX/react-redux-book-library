@@ -11,7 +11,7 @@ import {
 } from 'reactstrap';
 import { connect } from 'react-redux';
 import { addBook } from '../actions/bookActions';
-import uuid from 'uuid';
+// import uuid from 'uuid';
 
 class BookModal extends Component {
   state = {
@@ -35,7 +35,7 @@ class BookModal extends Component {
     event.preventDefault();
 
     const newBook = {
-      id: uuid(),
+      // id: uuid(),
       name: this.state.name,
       author: this.state.author,
       category: this.state.category
