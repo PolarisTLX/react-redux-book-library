@@ -1,24 +1,33 @@
 {
   "name": "redux-book-store",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "bootstrap": "^4.1.3",
-    "react": "^16.4.2",
-    "react-dom": "^16.4.2",
-    "react-redux": "^5.0.7",
-    "react-scripts": "1.1.4",
-    "react-transition-group": "^2.4.0",
-    "reactstrap": "^6.3.1",
-    "redux": "^4.0.0",
-    "redux-thunk": "^2.3.0",
-    "uuid": "^3.3.2"
-  },
+  "version": "1.0.0",
+  "description": "MERN Full-Stack Book Library Project",
+  "main": "server.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "client-install": "npm install --prefix client",
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
-  "homepage" : "https://react-redux-booklibrary.netlify.com/"
+  "keywords": [
+    "MERN",
+    "MongoDB",
+    "Express",
+    "React",
+    "Redux",
+    "Node"
+  ],
+  "author": "Paul Rail and Kyle Lemon",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "concurrently": "^3.6.1",
+    "express": "^4.16.3",
+    "mongoose": "^5.2.8"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.3"
+  }
 }

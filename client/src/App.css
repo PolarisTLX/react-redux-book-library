@@ -13,6 +13,10 @@ body {
  border-color: rgb(66,139,202);
 }
 
+.navbar-toggler:focus {
+ outline: none;
+}
+
 .navbar-toggler-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(66,139,202)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
  /*background-image with hexcode needed to change color of three lines (#FFFFFF is white) */
@@ -31,7 +35,14 @@ body {
 .remove-btn {
   margin-right: 10px;
   float: left;
-  padding: 4px 11px;
+  padding: 0px 10px;
+  font-size: 1.5rem;
+}
+
+.edit-button {
+  padding: 0px 7px;
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
 }
 
 .fade-enter {
