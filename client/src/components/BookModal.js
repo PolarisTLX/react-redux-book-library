@@ -19,7 +19,7 @@ class BookModal extends Component {
     name: '',
     author: '',
     category: 'Action',
-    current_chapter: 'Chapter 1',
+    current_chapter: null,
     current_page: 0,
     total_pages: null
   }

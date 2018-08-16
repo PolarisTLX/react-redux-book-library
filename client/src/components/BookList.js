@@ -10,7 +10,6 @@ import PropTypes from 'prop-types';
 import CategoryFilter from './CategoryFilter';
 import Book from './Book';
 import EditModal from './EditModal';
-import ProgressModal from './ProgressModal';
 
 class BookList extends Component {
 
@@ -40,17 +39,26 @@ class BookList extends Component {
               .map(({ _id, name, author, category, current_chapter, current_page, total_pages}) => (
               <CSSTransition key={_id} timeout={500} classNames="fade">
                 <ListGroupItem>
-                  <Book name={name} author={author} category={category} />
-                  <ProgressModal style={{float:'right'}} _id={_id} name={name} author={author} category={category} current_chapter={current_chapter} current_page={current_page} total_pages={total_pages}/>
-                  <Button
-                  className="remove-btn"
-                  color="dark"
-                  size="sm"
-                  onClick={() => this.onDeleteClick(_id)}
+
+                  <Book name={name}
+                        author={author}
+                        category={category}
+                  />
+
+                  <Button className="remove-btn"
+                          color="dark"
+                          size="sm"
+                          onClick={() => this.onDeleteClick(_id)}
                   >
                     &times;
                   </Button>
-                  <EditModal categories={this.props.categories} _id={_id} name={name} author={author} category={category} current_chapter={current_chapter} current_page={current_page} total_pages={total_pages} />
+
+                  <EditModal categories={this.props.categories}
+                             _id={_id} name={name}
+                             author={author}
+                             category={category} current_chapter={current_chapter} current_page={current_page} total_pages={total_pages}
+                  />
+
                 </ListGroupItem>
               </CSSTransition>
             ))}
