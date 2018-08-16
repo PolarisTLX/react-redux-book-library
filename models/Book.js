@@ -15,6 +15,18 @@ const BookSchema = new Schema({
     type: String,
     required: true
   },
+  current_chapter: {
+    type: String,
+    required: false
+  },
+  current_page: {
+    type: Number,
+    required: false
+  },
+  total_pages: {
+    type: Number,
+    required: false
+  },
   date: {
     type: Date,
     default: Date.now

@@ -12,7 +12,7 @@ import {
 import { connect } from 'react-redux';
 import { updateBook } from '../actions/bookActions';
 
-class EditModal extends Component {
+class ProgressModal extends Component {
   state = {
     modal: false,
     name: this.props.name,
@@ -46,6 +46,7 @@ class EditModal extends Component {
       current_page: this.state.current_page,
       total_pages: this.state.total_pages
     }
+    console.log(modifiedBook);
 
     // Edit book via updateBook action:
     // this.props.addBook(newBook);
@@ -59,12 +60,12 @@ class EditModal extends Component {
     return (
       <div>
         <Button
-          className="edit-button"
-          color="medium"
+          className="update-progress-button"
+          color="primary"
           size="sm"
           onClick={this.toggle}
         >
-          &#x270E;
+          Update Progress
         </Button>
 
         <Modal
@@ -72,54 +73,35 @@ class EditModal extends Component {
           toggle={this.toggle}
         >
           <ModalHeader toggle={this.toggle}>
-            Edit your existing book from your library
+            Update your progress in {this.state.name}:
           </ModalHeader>
           <ModalBody>
             <Form onSubmit={this.onSubmit}>
               <FormGroup>
-                <Label for="title">Title:</Label>
+                <Label for="current_chapter">Current Chapter:</Label>
                 <Input
                   type="text"
-                  name="name"
-                  id="title"
-                  placeholder="Example: Lord of The Rings"
-                  value={this.state.name}
+                  name="current_chapter"
+                  id="current_chapter"
+                  placeholder="Example: Chapter 1 - The Beginning"
+                  value={this.state.current_chapter}
                   onChange={this.onChange}
                 />
-                <Label for="author">Author:</Label>
-                <Input
-                  type="text"
-                  name="author"
-                  id="author"
-                  placeholder="Example: J.R. Tolkien"
-                  value={this.state.author}
-                  onChange={this.onChange}
-                />
-                <Label for="total_pages">Total Pages:</Label>
+                <Label for="current_page">Current Page:</Label>
                 <Input
                   type="number"
-                  name="total_pages"
-                  id="total_pages"
-                  placeholder="Example: 394"
-                  value={this.state.total_pages}
+                  name="current_page"
+                  id="current_page"
+                  placeholder="Example: 50"
+                  value={this.state.current_page}
                   onChange={this.onChange}
                 />
-                <Label for="category">Category:</Label>
-                <Input
-                  type="select"
-                  name="category"
-                  id="category"
-                  onChange={this.onChange}
-                  value={this.state.category}
-                >
-                {this.props.categories.map(cat => <option key={cat} value={cat}>{cat}</option>)}
-                </Input>
                 <Button
                   color="dark"
                   style={{marginTop: '2rem'}}
                   block
                 >
-                  Edit Book
+                  Update Progress
                 </Button>
               </FormGroup>
             </Form>
@@ -135,4 +117,4 @@ const mapStateToProps = state => ({
   book: state.book
 });
 
-export default connect(mapStateToProps, { updateBook })(EditModal);
+export default connect(mapStateToProps, { updateBook })(ProgressModal);

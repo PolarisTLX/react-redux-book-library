@@ -22,7 +22,10 @@ router.post('/', (req, res) => {
     // NOTE: youtuber video at 27min
     name: req.body.name,
     author: req.body.author,
-    category: req.body.category
+    category: req.body.category,
+    current_chapter: req.body.current_chapter,
+    current_page: req.body.current_page,
+    total_pages: req.body.total_pages
   });
 
   newBook.save().then(book => res.json(book));

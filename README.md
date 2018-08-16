@@ -22,13 +22,13 @@ This project runs on Node.js and uses the Node Package Manager (npm).
 
 ### Installing
 
-* clone the repo
+* Clone the repo
 * cd into the folder
-* run `npm install`
+* Run `npm install` and `npm run client-install` to install the necessary packages
 
 ### Serve Project
 
-Run the server with the following command:
+Run the servers with the following command:
 
 ```
 npm run dev
