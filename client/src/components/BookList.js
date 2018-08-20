@@ -43,6 +43,10 @@ class BookList extends Component {
                   <Book name={name}
                         author={author}
                         category={category}
+                        current_page={current_page}
+                        total_pages={total_pages}
+                        current_chapter={current_chapter}
+                        percentage={Math.floor((current_page/total_pages)*100)}
                   />
 
                   <Button className="remove-btn"

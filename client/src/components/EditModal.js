@@ -128,6 +128,7 @@ class EditModal extends Component {
             placeholder="Example: 50"
             value={this.state.current_page}
             onChange={this.onChange}
+            max={this.state.total_pages}
           />
           <Button
             color="dark"

@@ -62,3 +62,32 @@ body {
   opacity: 0.01;
   transition: opacity 1000ms ease-in;
 }
+
+
+/* Circular progress bar: */
+#progressInput {
+  margin: 20px auto;
+  width: 30%;
+}
+
+.circle-background,
+.circle-progress {
+  fill: none;
+}
+
+.circle-background {
+  stroke: #ddd;
+}
+
+.circle-progress {
+  stroke: #007bff;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.circle-text {
+  font-size: 2.5em;
+  font-weight: bold;
+  fill: #007bff;
+}
+/* End of circular progress bar */
