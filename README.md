@@ -4,17 +4,28 @@
 
 ## MERN Library Project with Redux
 
-This is a full-stack MERN with Redux application built using:
-* MongoDB (through MLab) as the database,
-* Express.js and Node.js as the backend server,
-* React as the frontend library + ReactStrap,
+This is a full-stack project with Redux, written to be compatible with two different backend frameworks built using:
+
+* React as the frontend library + ReactStrap
 * Redux for state control
 
-You can add, delete, and edit books from the library.
+AND
+
+* Express.js and Node.js as the backend server
+* MongoDB (through MLab) as the database
+
+OR - [An alternate compatible backend located here](https://github.com/jklemon17/redux-bookstore-api) which uses:
+
+* Ruby on Rails as the backend
+* PostgreSQL as the database
+
+
+
+You can add, delete, and edit books from the library as well as keep track of your current progress through your books.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes using the MERN stack with Express and MongoDB.  (If you wish to use the Ruby on Rails backend API, [go here](https://github.com/jklemon17/redux-bookstore-api).
 
 ### Prerequisites
 
