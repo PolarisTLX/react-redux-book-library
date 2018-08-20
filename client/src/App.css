@@ -32,6 +32,13 @@ body {
   height: 150px;
 }
 
+.progress-circle {
+  display: inline;
+  float: left;
+  margin-bottom: 20px;
+  margin-right: 10px;
+}
+
 .remove-btn {
   margin-right: 10px;
   float: left;
@@ -41,8 +48,14 @@ body {
 
 .edit-button {
   padding: 0px 7px;
-  margin-bottom: 2rem;
+  margin-right: 10px;
+
+  /* margin-bottom: 2rem; */
   font-size: 1.5rem;
+}
+
+.update-progress-button {
+  padding: 7px;
 }
 
 .fade-enter {

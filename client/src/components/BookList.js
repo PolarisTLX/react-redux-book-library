@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, ListGroup, ListGroupItem, Button } from 'reactstrap';
+import { Container, ListGroup, ListGroupItem } from 'reactstrap';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 // import uuid from 'uuid';
 import { connect } from 'react-redux';
@@ -9,7 +9,6 @@ import PropTypes from 'prop-types';
 
 import CategoryFilter from './CategoryFilter';
 import Book from './Book';
-import EditModal from './EditModal';
 
 class BookList extends Component {
 
@@ -39,30 +38,17 @@ class BookList extends Component {
               .map(({ _id, name, author, category, current_chapter, current_page, total_pages}) => (
               <CSSTransition key={_id} timeout={500} classNames="fade">
                 <ListGroupItem>
-
-                  <Book name={name}
+                  <Book categories={this.props.categories}
+                        _id={_id}
+                        name={name}
                         author={author}
                         category={category}
                         current_page={current_page}
                         total_pages={total_pages}
                         current_chapter={current_chapter}
                         percentage={Math.floor((current_page/total_pages)*100)}
+                        onDeleteClick={() => this.onDeleteClick(_id)}
                   />
-
-                  <Button className="remove-btn"
-                          color="dark"
-                          size="sm"
-                          onClick={() => this.onDeleteClick(_id)}
-                  >
-                    &times;
-                  </Button>
-
-                  <EditModal categories={this.props.categories}
-                             _id={_id} name={name}
-                             author={author}
-                             category={category} current_chapter={current_chapter} current_page={current_page} total_pages={total_pages}
-                  />
-
                 </ListGroupItem>
               </CSSTransition>
             ))}

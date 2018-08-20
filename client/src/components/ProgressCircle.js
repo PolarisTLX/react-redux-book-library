@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 class ProgressCircle extends React.Component {
   constructor(props) {
     super(props);
@@ -21,6 +21,7 @@ class ProgressCircle extends React.Component {
 
     return (
       <svg
+          className="progress-circle"
           width={this.props.sqSize}
           height={this.props.sqSize}
           viewBox={viewBox}>
