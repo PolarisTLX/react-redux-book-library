@@ -37,7 +37,7 @@ class BookList extends Component {
             {books.filter(book => catFilter.includes(book.category))
               .map(({ _id, name, author, category, current_chapter, current_page, total_pages}) => (
               <CSSTransition key={_id} timeout={500} classNames="fade">
-                <ListGroupItem>
+                <ListGroupItem  className="book">
                   <Book categories={this.props.categories}
                         _id={_id}
                         name={name}

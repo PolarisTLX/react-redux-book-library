@@ -10,7 +10,7 @@ body {
 
 
 .navbar-toggler {
- border-color: rgb(66,139,202);
+ border-color: #007bff;
 }
 
 .navbar-toggler:focus {
@@ -23,40 +23,92 @@ body {
 }
 
 #category-select {
-  margin-bottom: 10px;
+  margin-bottom: 0.7rem;
 }
 
-.book-image {
+/* .book-image {
   float: right;
   width: 100px;
   height: 150px;
+} */
+
+.book {
+  margin-bottom: 0.7rem;
+}
+.book-details h5, .progress-text p, .chapter-div h6 {
+  color: grey;
 }
 
-.progress-circle {
-  display: inline;
-  float: left;
-  margin-bottom: 20px;
-  margin-right: 10px;
+@media only screen and (max-width: 500px) {
+  .buttons-row {
+    margin-top: 1rem;
+    margin-left: 0.7rem;
+  }
 }
+
+
 
 .remove-btn {
+  margin-left: -0.6rem;
   margin-right: 10px;
   float: left;
-  padding: 0px 10px;
-  font-size: 1.5rem;
+  padding-right: 1rem;
+  background-color: transparent;
+  border-color: transparent;
+  border-right: 2px solid rgb(240, 240, 240);
+  color: #007bff;
+  font-size: 1rem;
 }
 
 .edit-button {
-  padding: 0px 7px;
+  /* padding: 0px 7px; */
   margin-right: 10px;
-
-  /* margin-bottom: 2rem; */
-  font-size: 1.5rem;
+  margin-top: -0.1rem;
+  background-color: transparent;
+  border-color: transparent;
+  color: #007bff;
+  font-size: 1rem;
 }
 
 .update-progress-button {
   padding: 7px;
 }
+@media only screen and (min-width: 750px) {
+  .update-progress-button {
+    transform: translate(55vw, -2.5rem);
+  }
+}
+@media only screen and (min-width: 800px) {
+  .update-progress-button {
+    transform: translate(52vw, -2.5rem);
+  }
+}
+@media only screen and (min-width: 900px) {
+  .update-progress-button {
+    transform: translate(45vw, -2.5rem);
+  }
+}
+/* @media only screen and (max-width: 1000px) {
+  .update-progress-button {
+    transform: translate(43vw, -2rem);
+  }
+} */
+@media only screen and (min-width: 1000px) {
+  .update-progress-button {
+    transform: translate(43vw, -1.5rem);
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .update-progress-button {
+    transform: translate(45vw, -1.5rem);
+  }
+}
+@media only screen and (min-width: 1400px) {
+  .update-progress-button {
+    transform: translate(38vw, -1.5rem);
+  }
+}
+
 
 .fade-enter {
   opacity: 0.01;
@@ -77,7 +129,30 @@ body {
 }
 
 
-/* Circular progress bar: */
+/* CIRCULAR PROGRESS BAR: */
+.progress-div {
+}
+@media only screen and (min-width: 600px) {
+  .progress-div {
+    border-right: 2px solid rgb(240, 240, 240);
+    margin-top: 2rem;
+    margin-left: -2rem;
+    margin-right: 2rem;
+  }
+}
+
+.progress-circle {
+  display: inline;
+  /* margin-bottom: 20px; */
+  margin-top: -1.2rem;
+  margin-right: 1rem;
+  display: inline-block;
+}
+.progress-text {
+  display: inline-block;
+  transform: translateY(0.8rem);
+}
+
 #progressInput {
   margin: 20px auto;
   width: 30%;
@@ -98,9 +173,14 @@ body {
   stroke-linejoin: round;
 }
 
-.circle-text {
+/* .circle-text {
   font-size: 2.5em;
   font-weight: bold;
   fill: #007bff;
+} */
+/* END OF CIRCULAR PROGRESS BAR */
+
+.chapter-div {
+  margin-top: 1.5rem;
+  /* margin-left: 2rem; */
 }
-/* End of circular progress bar */

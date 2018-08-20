@@ -147,14 +147,13 @@ class EditModal extends Component {
         {/*EDIT BUTTON*/}
         <Button
           className="edit-button"
-          color="medium"
           size="sm"
           onClick={() => {
               this.setState({modal_form: "Edit"});
               this.toggle();
           }}
         >
-          &#x270E;
+          Edit
         </Button>
 
         {/*PROGRESS BUTTON*/}
