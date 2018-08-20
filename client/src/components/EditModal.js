@@ -40,6 +40,7 @@ class EditModal extends Component {
     const modifiedBook = {
       // id: uuid(),
       _id: this.props._id,
+      id: this.props.id,
       name: this.state.name,
       author: this.state.author,
       category: this.state.category,

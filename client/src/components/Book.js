@@ -42,6 +42,7 @@ class Book extends Component {
             </Button>
             <EditModal categories={this.props.categories}
                        _id={this.props._id}
+                       id={this.props.id}
                        name={this.props.name}
                        author={this.props.author}
                        category={this.props.category}

@@ -28,18 +28,26 @@ export default function(state = initialState, action) {
       };
     case UPDATE_BOOK:
       const updatedBooks = state.books.map(book => {
-        if(book._id === action.payload._id){
-          return { ...book, ...action.payload}
+        console.log(book._id);
+        if (book._id === undefined) {
+          if(book.id === action.payload.id){
+            return { ...book, ...action.payload}
+          }
+        } else {
+          if(book._id === action.payload._id){
+            return { ...book, ...action.payload}
+          }
         }
         return book;
       });
-      return { 
+      console.log(updatedBooks)
+      return {
         books: updatedBooks
       };
     case DELETE_BOOK:
       return {
         ...state,
-        books: state.books.filter(book => book._id !== action.payload)
+        books: state.books.filter(book => (book._id !== action.payload && book.id !== action.payload))
       };
     case BOOKS_LOADING:
       return {

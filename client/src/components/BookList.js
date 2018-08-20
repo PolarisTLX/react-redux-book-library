@@ -35,11 +35,12 @@ class BookList extends Component {
         <ListGroup>
           <TransitionGroup className="book-list">
             {books.filter(book => catFilter.includes(book.category))
-              .map(({ _id, name, author, category, current_chapter, current_page, total_pages}) => (
-              <CSSTransition key={_id} timeout={500} classNames="fade">
+              .map(({ _id, id, name, author, category, current_chapter, current_page, total_pages}) => (
+              <CSSTransition key={_id || id} timeout={500} classNames="fade">
                 <ListGroupItem  className="book">
                   <Book categories={this.props.categories}
                         _id={_id}
+                        id={id}
                         name={name}
                         author={author}
                         category={category}
@@ -47,7 +48,7 @@ class BookList extends Component {
                         total_pages={total_pages}
                         current_chapter={current_chapter}
                         percentage={Math.floor((current_page/total_pages)*100)}
-                        onDeleteClick={() => this.onDeleteClick(_id)}
+                        onDeleteClick={() => this.onDeleteClick(_id || id)}
                   />
                 </ListGroupItem>
               </CSSTransition>
