@@ -16,8 +16,8 @@ AND
 
 OR - [An alternate compatible backend located here](https://github.com/jklemon17/redux-bookstore-api) which uses:
 
-* Ruby on Rails as the backend
-* PostgreSQL as the database
+* Ruby on Rails as the backend server
+* SQLite3 as the database
 
 
 
