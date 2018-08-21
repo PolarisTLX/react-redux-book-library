@@ -1,6 +1,6 @@
 # README
 
-## Check it out live on Heroku: [MERN Library with React and Redux](https://mern-with-redux-shoppinglist.herokuapp.com/)
+## Check it out live on Heroku: [MERN Library with React and Redux](https://mern-stack-book-library.herokuapp.com/)
 
 ## MERN Library Project with Redux
 
