@@ -14,7 +14,7 @@ AND
 * Express.js and Node.js as the backend server
 * MongoDB (through MLab) as the database
 
-OR - [An alternate compatible backend located here](https://github.com/jklemon17/redux-bookstore-api) which uses:
+OR - [An alternate compatible backend located here](https://github.com/jklemon17/book-library-api) which uses:
 
 * Ruby on Rails as the backend server
 * SQLite3 as the database
@@ -25,7 +25,7 @@ You can add, delete, and edit books from the library as well as keep track of yo
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes using the MERN stack with Express and MongoDB.  (If you wish to use the Ruby on Rails backend API, [go here](https://github.com/jklemon17/redux-bookstore-api).
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes using the MERN stack with Express and MongoDB.  (If you wish to use the Ruby on Rails backend API, [go here](https://github.com/jklemon17/book-library-api).
 
 ### Prerequisites
 
