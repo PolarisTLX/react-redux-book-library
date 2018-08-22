@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 // Book Model
-const Book = require('../../models/Book');
+const Book = require('../models/Book');
 
 // @route GET api/books
 // @description Get All Books

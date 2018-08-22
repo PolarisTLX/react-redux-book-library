@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 
 // const books = require('./routes/api/books');
-const books = require('./routes/api/books');
+const books = require('./routes/books');
 
 const app = express();
 
@@ -21,7 +21,8 @@ mongoose
   .catch(err => console.log(err));
 
 // Use Routes:
-app.use('/api/books', books);
+// app.use('/api/books', books);
+app.use('/books', books);
 
 // For Heroku: Serve static assets if we're in production:
 if(process.env.NODE_ENV === 'production') {

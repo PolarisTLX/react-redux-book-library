@@ -18,7 +18,10 @@ class BookModal extends Component {
     modal: false,
     name: '',
     author: '',
-    category: 'Action'
+    category: 'Action',
+    current_chapter: null,
+    current_page: 0,
+    total_pages: null
   }
 
   toggle = () => {
@@ -38,7 +41,10 @@ class BookModal extends Component {
       // id: uuid(),
       name: this.state.name,
       author: this.state.author,
-      category: this.state.category
+      category: this.state.category,
+      current_chapter: this.state.current_chapter,
+      current_page: this.state.current_page,
+      total_pages: this.state.total_pages
     }
 
     // Add book via addBook action:
@@ -84,6 +90,15 @@ class BookModal extends Component {
                   name="author"
                   id="author"
                   placeholder="Example: J.R. Tolkien"
+                  onChange={this.onChange}
+                />
+                <Label for="total_pages">Total Pages:</Label>
+                <Input
+                  type="number"
+                  name="total_pages"
+                  id="total_pages"
+                  placeholder="Example: 394"
+                  value={this.state.total_pages}
                   onChange={this.onChange}
                 />
                 <Label for="category">Category:</Label>
