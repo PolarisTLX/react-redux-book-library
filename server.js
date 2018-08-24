@@ -5,6 +5,7 @@ const path = require('path');
 
 // const books = require('./routes/api/books');
 const books = require('./routes/books');
+const signin = require('./routes/api/signin');
 
 const app = express();
 
@@ -23,6 +24,7 @@ mongoose
 // Use Routes:
 // app.use('/api/books', books);
 app.use('/books', books);
+app.use('/account/signin', signin);
 
 // For Heroku: Serve static assets if we're in production:
 if(process.env.NODE_ENV === 'production') {

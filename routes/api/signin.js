@@ -1,10 +1,13 @@
+// User Model
 const User = require('../../models/User');
+// UserSession Model
 const UserSession = require('../../models/UserSession');
 
 module.exports = (app) => {
   // Sign up action
   app.post('/api/account/signup', (req, res, next) => {
     const { body } = req;
+    console.log('body', body);
     const {
       firstName,
       lastName,

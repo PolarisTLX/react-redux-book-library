@@ -3,6 +3,7 @@ import AppNavbar from './AppNavbar';
 import BookList from './BookList';
 import BookModal from './BookModal';
 import { Container } from 'reactstrap';
+import Home from './Home';
 
 import { Provider } from 'react-redux';
 import store from '../store';
@@ -17,6 +18,8 @@ const App = () => {
         <div className="App">
           <AppNavbar />
           <Container>
+            <Home />
+            <br/>
             <Container>
               <BookModal categories={categories}/>
             </Container>
