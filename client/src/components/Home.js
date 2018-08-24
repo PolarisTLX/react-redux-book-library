@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import 'whatwg-fetch';
+import axios from 'axios';
 
 import {
   getFromStorage,
@@ -106,17 +107,25 @@ class Home extends Component {
       isLoading: true,
     });
 
+    let user = {
+      email: signInEmail,
+      password: signInPassword
+    }
+
     // Post request to backend
-    fetch('/api/account/signin', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        email: signInEmail,
-        password: signInPassword,
-      }),
-    }).then(res => res.json())
+    axios.post('/api/account/signin', user)
+    // fetch('/api/account/signin', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //     'Accept': 'application/json'
+    //   },
+    //   body: JSON.stringify({
+    //     email: signInEmail,
+    //     password: signInPassword,
+    //   }),
+    // })
+    .then(res => res.json())
       .then(json => {
         console.log('json', json);
         if (json.success) {
@@ -153,19 +162,28 @@ class Home extends Component {
       isLoading: true,
     });
 
+    let newUser = {
+      firstName: signUpFirstName,
+      lastName: signUpLastName,
+      email: signUpEmail,
+      password: signUpPassword,
+    }
+
     // Post request to backend
-    fetch('/api/account/signup', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        firstName: signUpFirstName,
-        lastName: signUpLastName,
-        email: signUpEmail,
-        password: signUpPassword,
-      }),
-    }).then(res => res.json())
+    axios.post('/api/account/signup', newUser)
+    // fetch('/api/account/signup', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json'
+    //   },
+    //   body: JSON.stringify({
+    //     firstName: signUpFirstName,
+    //     lastName: signUpLastName,
+    //     email: signUpEmail,
+    //     password: signUpPassword,
+    //   }),
+    // })
+    .then(res => res.json())
       .then(json => {
         console.log('json', json);
         if (json.success) {

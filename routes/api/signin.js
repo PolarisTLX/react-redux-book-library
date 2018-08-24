@@ -1,11 +1,14 @@
+const express = require('express');
+const router = express.Router();
+
 // User Model
 const User = require('../../models/User');
 // UserSession Model
 const UserSession = require('../../models/UserSession');
 
-module.exports = (app) => {
+
   // Sign up action
-  app.post('/api/account/signup', (req, res, next) => {
+  router.post('/api/account/signup', (req, res, next) => {
     const { body } = req;
     console.log('body', body);
     const {
@@ -86,7 +89,7 @@ module.exports = (app) => {
     });
   });
 
-  app.post('/api/account/signin', (req, res, next) => {
+  router.post('/api/account/signin', (req, res, next) => {
     const { body } = req;
     const {
       password
@@ -159,7 +162,7 @@ module.exports = (app) => {
     });
   });
 
-  app.post('/api/account/verify', (req, res, next) => {
+  router.post('/api/account/verify', (req, res, next) => {
     // Steps to verify:
     // Get the token
     const { query } = req;
@@ -193,7 +196,7 @@ module.exports = (app) => {
     });
   });
 
-  app.post('/api/account/logout', (req, res, next) => {
+  router.post('/api/account/logout', (req, res, next) => {
     // Steps to verify:
     // Get the token
     const { query } = req;
@@ -223,4 +226,5 @@ module.exports = (app) => {
 
     });
   });
-};
+
+  module.exports = router;
