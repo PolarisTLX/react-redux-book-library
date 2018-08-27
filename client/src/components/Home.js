@@ -19,18 +19,18 @@ class Home extends Component {
       signInError: '',
       signInemail: '',
       signInPassword: '',
-      signUpFirstName: '',
-      signUpLastName: '',
+      signUpName: '',
       signUpEmail: '',
-      signUpPassword: ''
+      signUpPassword: '',
+      signUpPassword2: ''
     };
 
     this.onTextboxChangeSignInEmail = this.onTextboxChangeSignInEmail.bind(this);
     this.onTextboxChangeSignInPassword = this.onTextboxChangeSignInPassword.bind(this);
     this.onTextboxChangeSignUpEmail = this.onTextboxChangeSignUpEmail.bind(this);
     this.onTextboxChangeSignUpPassword = this.onTextboxChangeSignUpPassword.bind(this);
-    this.onTextboxChangeSignUpFirstName = this.onTextboxChangeSignUpFirstName.bind(this);
-    this.onTextboxChangeSignUpLastName = this.onTextboxChangeSignUpLastName.bind(this);
+    this.onTextboxChangeSignUpPassword2 = this.onTextboxChangeSignUpPassword2.bind(this);
+    this.onTextboxChangeSignUpName = this.onTextboxChangeSignUpName.bind(this);
 
     this.onSignIn = this.onSignIn.bind(this);
     this.onSignUp = this.onSignUp.bind(this);
@@ -75,14 +75,9 @@ class Home extends Component {
       signInPassword: event.target.value
     });
   }
-  onTextboxChangeSignUpFirstName(event) {
+  onTextboxChangeSignUpName(event) {
     this.setState({
-      signUpFirstName: event.target.value
-    });
-  }
-  onTextboxChangeSignUpLastName(event) {
-    this.setState({
-      signUpLastName: event.target.value
+      signUpName: event.target.value
     });
   }
   onTextboxChangeSignUpEmail(event) {
@@ -93,6 +88,11 @@ class Home extends Component {
   onTextboxChangeSignUpPassword(event) {
     this.setState({
       signUpPassword: event.target.value
+    });
+  }
+  onTextboxChangeSignUpPassword2(event) {
+    this.setState({
+      signUpPassword2: event.target.value
     });
   }
 
@@ -152,10 +152,10 @@ class Home extends Component {
   onSignUp() {
     // Grab state
     const {
-      signUpFirstName,
-      signUpLastName,
+      signUpName,
       signUpEmail,
       signUpPassword,
+      signUpPassword2,
     } = this.state;
 
     this.setState({
@@ -170,6 +170,7 @@ class Home extends Component {
     }
 
     // Post request to backend
+<<<<<<< HEAD
     axios.post('/api/account/signup', newUser)
     // fetch('/api/account/signup', {
     //   method: 'POST',
@@ -184,6 +185,20 @@ class Home extends Component {
     //   }),
     // })
     .then(res => res.json())
+=======
+    fetch('/api/users/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name: signUpName,
+        email: signUpEmail,
+        password: signUpPassword,
+        password2: signUpPassword2,
+      }),
+    }).then(res => res.json())
+>>>>>>> 5a0ba3dee56c18dc0916ff2dce1e41347dc210c9
       .then(json => {
         console.log('json', json);
         if (json.success) {
@@ -191,10 +206,10 @@ class Home extends Component {
             signUpError: json.message,
             isLoading: false,
             // clear all textboxes:
-            signUpFirstName: '',
-            signUpLastName: '',
+            signUpName: '',
             signUpEmail: '',
             signUpPassword: '',
+            signUpPassword2: '',
           });
         } else {
           this.setState({
@@ -248,10 +263,10 @@ class Home extends Component {
       signInEmail,
       signInPassword,
       signUpError,
-      signUpFirstName,
-      signUpLastName,
+      signUpName,
       signUpEmail,
       signUpPassword,
+      signUpPassword2,
     } = this.state;
 
     if (isLoading) {
@@ -294,15 +309,9 @@ class Home extends Component {
             <p>Sign Up</p>
             <input
               type="text"
-              placeholder="First Name"
-              value={signUpFirstName}
-              onChange={this.onTextboxChangeSignUpFirstName}
-            /><br/>
-            <input
-              type="text"
-              placeholder="Last Name"
-              value={signUpLastName}
-              onChange={this.onTextboxChangeSignUpLastName}
+              placeholder="Name"
+              value={signUpName}
+              onChange={this.onTextboxChangeSignUpName}
             /><br/>
             <input
               type="email"
@@ -314,6 +323,11 @@ class Home extends Component {
               type="password"
               placeholder="Password" value={signUpPassword}
               onChange={this.onTextboxChangeSignUpPassword}
+            /><br/>
+            <input
+              type="password"
+              placeholder="Confirm Password" value={signUpPassword2}
+              onChange={this.onTextboxChangeSignUpPassword2}
             /><br/>
             <button onClick={this.onSignUp}>Sign Up</button>
           </div>

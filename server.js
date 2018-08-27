@@ -1,15 +1,18 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const passport = require('passport');
 const path = require('path');
 
+const users = require('./routes/api/users');
+const signin = require('./routes/api/signin'); // old?
 // const books = require('./routes/api/books');
 const books = require('./routes/books');
-const signin = require('./routes/api/signin');
 
 const app = express();
 
 // Bodyparser Middleware
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // DB Config
@@ -21,10 +24,24 @@ mongoose
   .then(() => console.log('MongoDB Connected...'))
   .catch(err => console.log(err));
 
+// Passport middleware:
+app.use(passport.initialize());
+
+// Passport config
+require('./config/passport.js')(passport);
+
 // Use Routes:
+<<<<<<< HEAD
 // app.use('/api/books', books);
 app.use('/books', books);
 app.use('/api/account/signin', signin);
+=======
+// app.use('/account/signin', signin);
+app.use('/api/users', users);
+app.use('/api/books', books);
+// for the Rails backend:
+// app.use('/books', books);
+>>>>>>> 5a0ba3dee56c18dc0916ff2dce1e41347dc210c9
 
 // For Heroku: Serve static assets if we're in production:
 if(process.env.NODE_ENV === 'production') {
