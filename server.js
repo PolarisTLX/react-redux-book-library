@@ -6,8 +6,8 @@ const path = require('path');
 
 const users = require('./routes/api/users');
 const signin = require('./routes/api/signin'); // old?
-// const books = require('./routes/api/books');
-const books = require('./routes/books');
+const books = require('./routes/api/books');
+// const books = require('./routes/books');
 
 const app = express();
 

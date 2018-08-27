@@ -27,10 +27,6 @@ const BookSchema = new Schema({
     type: Number,
     required: false
   },
-  user_id: {
-    type: Number,
-    required: true
-  }
   date: {
     type: Date,
     default: Date.now

@@ -7,8 +7,8 @@ export const getBooks = () => dispatch => {
   // };
   dispatch(setBooksLoading());
   axios
-    // .get('/api/books')
-    .get('/books')
+    .get('/api/books')
+    // .get('/books')
     .then(res =>
       dispatch({
         type: GET_BOOKS,
@@ -23,8 +23,8 @@ export const addBook = book => dispatch => {
   //   payload: book
   // };
   axios
-    // .post('/api/books', book)
-    .post('/books', book)
+    .post('/api/books', book)
+    // .post('/books', book)
     .then(res =>
       dispatch({
         type: ADD_BOOK,
@@ -39,8 +39,8 @@ export const updateBook = book => dispatch => {
   //   payload: book
   // };
   axios
-    // .put(`/api/books/${book._id}`, book)
-    .put(`/books/${book._id || book.id}`, book)
+    .put(`/api/books/${book._id}`, book)
+    // .put(`/books/${book._id || book.id}`, book)
     .then(res =>
       dispatch({
         type: UPDATE_BOOK,
@@ -55,8 +55,8 @@ export const deleteBook = id => dispatch => {
   //   payload: id
   // };
   axios
-    // .delete(`/api/books/${id}`)
-    .delete(`/books/${id}`)
+    .delete(`/api/books/${id}`)
+    // .delete(`/books/${id}`)
     .then(res =>
       dispatch({
         type: DELETE_BOOK,

@@ -9,6 +9,7 @@ import {
   NavLink,
   Container
 } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 class AppNavbar extends Component {
   state = {
@@ -25,12 +26,15 @@ class AppNavbar extends Component {
       <div>
         <Navbar color="white" primary="true" expand="sm" className="mb-5">
           <Container>
-            <NavbarBrand href="/">Book Store</NavbarBrand>
+            <Link className="navbar-brand" to="/">Book Store</Link>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="ml-auto" navbar>
                 <NavItem>
-                  <NavLink href="https://github.com/PolarisTLX/redux-book-store"target="_">GitHub Repository</NavLink>
+                  <Link className="nav-link" to="/register">Sign Up</Link>
+                </NavItem>
+                <NavItem>
+                  <Link className="nav-link" to="/login">Log In</Link>
                 </NavItem>
               </Nav>
             </Collapse>

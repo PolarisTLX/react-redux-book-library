@@ -7,6 +7,7 @@ import { getBooks, addBook, deleteBook } from '../actions/bookActions';
 import { changeFilter } from '../actions/filterActions';
 import PropTypes from 'prop-types';
 
+import BookModal from './BookModal';
 import CategoryFilter from './CategoryFilter';
 import Book from './Book';
 
@@ -31,6 +32,7 @@ class BookList extends Component {
 
     return (
       <Container style={{marginBottom: "20px"}}>
+        <BookModal categories={this.props.categories}/>
         <CategoryFilter selectedCategory={selectedFilter} categories={['All Categories',...this.props.categories]} onChange={this.handleFilterChange}/>
         <ListGroup>
           <TransitionGroup className="book-list">

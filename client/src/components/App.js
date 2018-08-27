@@ -2,9 +2,9 @@ import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import AppNavbar from './AppNavbar';
 import BookList from './BookList';
-import BookModal from './BookModal';
 import { Container } from 'reactstrap';
-import Home from './Home';
+import Register from './auth/Register';
+import Login from './auth/Login';
 
 import { Provider } from 'react-redux';
 import store from '../store';
@@ -20,12 +20,9 @@ const App = () => {
         <div className="App">
           <AppNavbar />
           <Container>
-            <Home />
-            <br/>
-            <Container>
-              <BookModal categories={categories}/>
-            </Container>
-            <BookList categories={categories}/>
+            <Route exact path="/" render={()=><BookList categories={categories}/>}/>
+            <Route exact path="/register" component={ Register }/>
+            <Route exact path="/login" component={ Login }/>
           </Container>
         </div>
       </Router>
