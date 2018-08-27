@@ -163,42 +163,14 @@ class Home extends Component {
     });
 
     let newUser = {
-      firstName: signUpFirstName,
-      lastName: signUpLastName,
+      name: signUpName,
       email: signUpEmail,
       password: signUpPassword,
+      password2: signUpPassword2,
     }
 
     // Post request to backend
-<<<<<<< HEAD
-    axios.post('/api/account/signup', newUser)
-    // fetch('/api/account/signup', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json'
-    //   },
-    //   body: JSON.stringify({
-    //     firstName: signUpFirstName,
-    //     lastName: signUpLastName,
-    //     email: signUpEmail,
-    //     password: signUpPassword,
-    //   }),
-    // })
-    .then(res => res.json())
-=======
-    fetch('/api/users/register', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        name: signUpName,
-        email: signUpEmail,
-        password: signUpPassword,
-        password2: signUpPassword2,
-      }),
-    }).then(res => res.json())
->>>>>>> 5a0ba3dee56c18dc0916ff2dce1e41347dc210c9
+    axios.post('/api/users/register', newUser)
       .then(json => {
         console.log('json', json);
         if (json.success) {

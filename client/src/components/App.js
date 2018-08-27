@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import AppNavbar from './AppNavbar';
 import BookList from './BookList';
 import BookModal from './BookModal';
@@ -14,7 +15,8 @@ import '../App.css';
 const App = () => {
   const categories = ["Action", "Biography", "History", "Horror", "Kids", "Learning", "Sci-Fi"];
   return (
-      <Provider store={store}>
+    <Provider store={store}>
+      <Router>
         <div className="App">
           <AppNavbar />
           <Container>
@@ -26,7 +28,8 @@ const App = () => {
             <BookList categories={categories}/>
           </Container>
         </div>
-      </Provider>
+      </Router>
+    </Provider>
   );
 };
 

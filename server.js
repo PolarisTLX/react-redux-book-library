@@ -31,17 +31,11 @@ app.use(passport.initialize());
 require('./config/passport.js')(passport);
 
 // Use Routes:
-<<<<<<< HEAD
-// app.use('/api/books', books);
-app.use('/books', books);
-app.use('/api/account/signin', signin);
-=======
 // app.use('/account/signin', signin);
 app.use('/api/users', users);
 app.use('/api/books', books);
 // for the Rails backend:
 // app.use('/books', books);
->>>>>>> 5a0ba3dee56c18dc0916ff2dce1e41347dc210c9
 
 // For Heroku: Serve static assets if we're in production:
 if(process.env.NODE_ENV === 'production') {
