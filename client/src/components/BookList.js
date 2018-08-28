@@ -12,15 +12,22 @@ import CategoryFilter from './CategoryFilter';
 import Book from './Book';
 
 class BookList extends Component {
-
   componentDidMount() {
     if(!this.props.auth.isAuthenticated) {
       // if NOT loged in, redirect to login page:
-      // this.props.history.push('/login');
+      this.props.history.push('/login');
     }
     // otherwise, load books:
-    this.props.getBooks();
+    this.props.getBooks(this.props.auth.user.id);
   };
+
+  componentWillReceiveProps(nextProps) {
+    if(!nextProps.auth.isAuthenticated) {
+      // once logged out, redirect user to the login page
+      this.props.history.push('/login');
+    }
+  }
+
 
   onDeleteClick = id => {
     this.props.deleteBook(id);
@@ -31,21 +38,26 @@ class BookList extends Component {
   }
 
   render() {
+
+    const categories = ["Action", "Biography", "History", "Horror", "Kids", "Learning", "Sci-Fi"];
     const { books } = this.props.library;
     const catFilter = this.props.catFilter.filter;
     const selectedFilter = catFilter.length > 1 ? 'All Categories' : catFilter[0]
 
     return (
       <Container style={{marginBottom: "20px"}}>
-        <BookModal categories={this.props.categories}/>
-        <CategoryFilter selectedCategory={selectedFilter} categories={['All Categories',...this.props.categories]} onChange={this.handleFilterChange}/>
+        <BookModal
+          categories={categories}
+          user_id={this.props.auth.user.id}
+        />
+        <CategoryFilter selectedCategory={selectedFilter} categories={['All Categories',...categories]} onChange={this.handleFilterChange}/>
         <ListGroup>
           <TransitionGroup className="book-list">
             {books.filter(book => catFilter.includes(book.category))
               .map(({ _id, id, name, author, category, current_chapter, current_page, total_pages}) => (
               <CSSTransition key={_id || id} timeout={500} classNames="fade">
                 <ListGroupItem  className="book">
-                  <Book categories={this.props.categories}
+                  <Book categories={categories}
                         _id={_id}
                         id={id}
                         name={name}
@@ -55,6 +67,7 @@ class BookList extends Component {
                         total_pages={total_pages}
                         current_chapter={current_chapter}
                         percentage={Math.floor((current_page/total_pages)*100)}
+                        user_id={this.props.auth.user.id}
                         onDeleteClick={() => this.onDeleteClick(_id || id)}
                   />
                 </ListGroupItem>

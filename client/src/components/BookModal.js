@@ -21,7 +21,7 @@ class BookModal extends Component {
     category: 'Action',
     current_chapter: null,
     current_page: 0,
-    total_pages: null
+    total_pages: null,
   }
 
   toggle = () => {
@@ -44,7 +44,8 @@ class BookModal extends Component {
       category: this.state.category,
       current_chapter: this.state.current_chapter,
       current_page: this.state.current_page,
-      total_pages: this.state.total_pages
+      total_pages: this.state.total_pages,
+      user_id: this.props.user_id
     }
 
     // Add book via addBook action:

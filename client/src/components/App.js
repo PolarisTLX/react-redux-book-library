@@ -38,14 +38,13 @@ if(localStorage.jwtToken) {
 }
 
 const App = () => {
-  const categories = ["Action", "Biography", "History", "Horror", "Kids", "Learning", "Sci-Fi"];
   return (
     <Provider store={store}>
       <Router>
         <div className="App">
           <AppNavbar />
           <Container>
-            <Route exact path="/" render={()=><BookList categories={categories}/>}/>
+            <Route exact path="/" component={ BookList }/>
             <Route exact path="/register" component={ Register }/>
             <Route exact path="/login" component={ Login }/>
           </Container>

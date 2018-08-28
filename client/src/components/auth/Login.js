@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import classnames from 'classnames';
 import { loginUser } from '../../actions/authActions';
+import { Link } from 'react-router-dom'
 
 class Login extends Component {
   constructor() {
@@ -91,6 +92,9 @@ class Login extends Component {
                 {errors.password && (<div className="invalid-feedback">{errors.password}</div>)}
                 <input type="submit" className="btn btn-info btn-block mt-4" />
               </form>
+
+              <p className="text-center">Not yet a user? <Link to="/register">Sign up here</Link>
+              </p>
             </div>
           </div>
         </div>

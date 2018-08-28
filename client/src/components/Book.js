@@ -49,6 +49,7 @@ class Book extends Component {
                        current_chapter={this.props.current_chapter}
                        current_page={this.props.current_page}
                        total_pages={this.props.total_pages}
+                       user_id={this.props.user_id}
             />
           </div>
         </div>

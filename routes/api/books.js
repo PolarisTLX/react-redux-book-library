@@ -8,7 +8,8 @@ const Book = require('../../models/Book');
 // @description Get All Books
 // @access Public
 router.get('/', (req, res) => {
-  Book.find()
+  console.log(req.query);
+  Book.find( { user_id: req.query.user_id })
     // likely don't need this date attribute in our books model
     .sort({ date: -1 })
     .then(books => res.json(books))
@@ -25,7 +26,8 @@ router.post('/', (req, res) => {
     category: req.body.category,
     current_chapter: req.body.current_chapter,
     current_page: req.body.current_page,
-    total_pages: req.body.total_pages
+    total_pages: req.body.total_pages,
+    user_id: req.body.user_id
   });
 
   newBook.save().then(book => res.json(book));

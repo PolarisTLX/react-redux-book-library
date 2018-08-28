@@ -1,13 +1,17 @@
 import axios from 'axios';
-import { GET_BOOKS, ADD_BOOK, UPDATE_BOOK, DELETE_BOOK, BOOKS_LOADING } from './types';
+import { GET_BOOKS, ADD_BOOK, UPDATE_BOOK, DELETE_BOOK, BOOKS_LOADING, CLEAR_USER_BOOKS } from './types';
 
-export const getBooks = () => dispatch => {
+export const getBooks = (user_id) => dispatch => {
   // return {
   //   type: GET_BOOKS
   // };
   dispatch(setBooksLoading());
   axios
-    .get('/api/books')
+    .get('/api/books', {
+      params: {
+        user_id: user_id
+      }
+    })
     // .get('/books')
     .then(res =>
       dispatch({
@@ -68,5 +72,11 @@ export const deleteBook = id => dispatch => {
 export const setBooksLoading = () => {
   return {
     type: BOOKS_LOADING
+  };
+};
+
+export const clearBooks = () => {
+  return {
+    type: CLEAR_USER_BOOKS
   };
 };

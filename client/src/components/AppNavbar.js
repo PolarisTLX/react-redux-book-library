@@ -14,6 +14,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { logoutUser } from '../actions/authActions';
+import { clearBooks } from '../actions/bookActions';
 
 class AppNavbar extends Component {
   state = {
@@ -28,6 +29,7 @@ class AppNavbar extends Component {
 
   onLogoutClick(e) {
     e.preventDefault();
+    this.props.clearBooks();
     this.props.logoutUser();
   }
 
@@ -95,4 +97,4 @@ const mapStateToProps = (state) => ({
 });
 
 
-export default connect(mapStateToProps, { logoutUser }) (AppNavbar);
+export default connect(mapStateToProps, { logoutUser, clearBooks }) (AppNavbar);

@@ -1,5 +1,5 @@
 // import uuid from 'uuid';
-import { GET_BOOKS, ADD_BOOK, UPDATE_BOOK, DELETE_BOOK, BOOKS_LOADING } from '../actions/types';
+import { GET_BOOKS, ADD_BOOK, UPDATE_BOOK, DELETE_BOOK, BOOKS_LOADING, CLEAR_USER_BOOKS } from '../actions/types';
 
 const initialState = {
   books: [
@@ -53,6 +53,12 @@ export default function(state = initialState, action) {
       return {
         ...state,
         loading: true
+      };
+    case CLEAR_USER_BOOKS:
+      return {
+        ...state,
+        books: [],
+        loading: false
       };
     default:
       return state;
