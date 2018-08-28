@@ -14,6 +14,11 @@ import Book from './Book';
 class BookList extends Component {
 
   componentDidMount() {
+    if(!this.props.auth.isAuthenticated) {
+      // if NOT loged in, redirect to login page:
+      // this.props.history.push('/login');
+    }
+    // otherwise, load books:
     this.props.getBooks();
   };
 
@@ -65,12 +70,14 @@ class BookList extends Component {
 BookList.propTypes = {
   getBooks: PropTypes.func.isRequired,
   library: PropTypes.object.isRequired,
-  catFilter: PropTypes.object.isRequired
-}
+  catFilter: PropTypes.object.isRequired,
+  auth: PropTypes.object.isRequired
+};
 
 const mapStateToProps = (state) => ({
   library: state.library,
-  catFilter: state.filter
+  catFilter: state.filter,
+  auth: state.auth
 });
 
 export default connect(mapStateToProps,

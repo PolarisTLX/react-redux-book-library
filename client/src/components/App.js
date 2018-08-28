@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import jwt_decode from 'jwt-decode';
 import setAuthToken from '../utils/setAuthToken';
-import { setCurrentUser } from '../actions/authActions';
+import { setCurrentUser, logoutUser } from '../actions/authActions';
 
 import AppNavbar from './AppNavbar';
 import BookList from './BookList';
@@ -24,6 +24,17 @@ if(localStorage.jwtToken) {
   const decoded = jwt_decode(localStorage.jwtToken);
   // Set user and isAuthenticated
   store.dispatch(setCurrentUser(decoded));
+
+  // Check for expired token:
+  const currentTime = Date.now() / 1000;
+  if(decoded.exp < currentTime) {
+    // Logout the user:
+    store.dispatch(logoutUser());
+    // TODO: Clear current Profile / Books:
+
+    // Redirect to login:
+    window.location.href = '/login';
+  }
 }
 
 const App = () => {

@@ -21,6 +21,13 @@ class Register extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
+  componentDidMount() {
+    if(this.props.auth.isAuthenticated) {
+      // if loged in, redirect to home / books:
+      this.props.history.push('/');
+    }
+  }
+
   componentWillReceiveProps(nextProps) {
     if (nextProps.errors) {
       this.setState({errors: nextProps.errors});

@@ -39,8 +39,13 @@ class AppNavbar extends Component {
       <Nav className="ml-auto" navbar>
         <NavItem>
           <p className="nav-link">
-            <img src='./user-avatar.png' height='30' style={{display: "inline; marginRight: 10px"}} alt="avatar"/>
-            Hi {user.name}!</p>
+            <img
+              src='./user-avatar.png'
+              height='30'
+              style={{display: "inline", marginRight: "10px"}} alt="avatar"
+            />
+            Hi {user.name}!
+          </p>
         </NavItem>
         <NavItem>
           <a
