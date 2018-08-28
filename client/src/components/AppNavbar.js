@@ -26,7 +26,7 @@ class AppNavbar extends Component {
       <div>
         <Navbar color="white" primary="true" expand="sm" className="mb-5">
           <Container>
-            <Link className="navbar-brand" to="/">Book Store</Link>
+            <Link className="navbar-brand" to="/">Book Library CMS</Link>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="ml-auto" navbar>
