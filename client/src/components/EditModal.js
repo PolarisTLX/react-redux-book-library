@@ -11,6 +11,7 @@ import {
 } from 'reactstrap';
 import { connect } from 'react-redux';
 import { updateBook } from '../actions/bookActions';
+import PropTypes from 'prop-types';
 
 class EditModal extends Component {
   state = {
@@ -25,8 +26,10 @@ class EditModal extends Component {
   }
 
   toggle = () => {
-    this.setState({
-      modal: !this.state.modal
+    this.setState(() => {
+      return {
+        modal: !this.state.modal
+      }
     });
   };
 
@@ -38,7 +41,6 @@ class EditModal extends Component {
     event.preventDefault();
 
     const modifiedBook = {
-      // id: uuid(),
       _id: this.props._id,
       id: this.props.id,
       name: this.state.name,
@@ -48,8 +50,6 @@ class EditModal extends Component {
       current_page: this.state.current_page,
       total_pages: this.state.total_pages
     }
-
-    console.log(modifiedBook);
 
     // Edit book via updateBook action:
     this.props.updateBook(modifiedBook);
@@ -150,7 +150,9 @@ class EditModal extends Component {
           className="edit-button"
           size="sm"
           onClick={() => {
-              this.setState({modal_form: "Edit"});
+              this.setState(() => {
+                return { modal_form: "Edit" }
+              });
               this.toggle();
           }}
         >
@@ -163,7 +165,9 @@ class EditModal extends Component {
           color="primary"
           size="sm"
           onClick={() => {
-              this.setState({modal_form: "Progress"});
+              this.setState(() => {
+                return { modal_form: "Progress" }
+              });
               this.toggle();
           }}
         >
@@ -189,9 +193,16 @@ class EditModal extends Component {
   }
 }
 
+EditModal.propTypes = {
+  category: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
+  current_chapter: PropTypes.string,
+  current_page: PropTypes.number.isRequired,
+  total_pages: PropTypes.number.isRequired,
+  _id: PropTypes.string.isRequired,
+  id: PropTypes.string,
+  updateBook: PropTypes.func.isRequired
+}
 
-const mapStateToProps = state => ({
-  book: state.book
-});
-
-export default connect(mapStateToProps, { updateBook })(EditModal);
+export default connect(null, { updateBook })(EditModal);

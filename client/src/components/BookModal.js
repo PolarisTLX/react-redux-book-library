@@ -11,7 +11,7 @@ import {
 } from 'reactstrap';
 import { connect } from 'react-redux';
 import { addBook } from '../actions/bookActions';
-// import uuid from 'uuid';
+import PropTypes from 'prop-types';
 
 class BookModal extends Component {
   state = {
@@ -19,9 +19,9 @@ class BookModal extends Component {
     name: '',
     author: '',
     category: 'Action',
-    current_chapter: null,
+    current_chapter: '',
     current_page: 0,
-    total_pages: null,
+    total_pages: 300,
   }
 
   toggle = () => {
@@ -38,7 +38,6 @@ class BookModal extends Component {
     event.preventDefault();
 
     const newBook = {
-      // id: uuid(),
       name: this.state.name,
       author: this.state.author,
       category: this.state.category,
@@ -128,9 +127,10 @@ class BookModal extends Component {
   }
 }
 
+BookModal.propTypes = {
+  categories: PropTypes.array.isRequired,
+  user_id: PropTypes.string,
+  addBook: PropTypes.func.isRequired
+}
 
-const mapStateToProps = state => ({
-  book: state.book
-});
-
-export default connect(mapStateToProps, { addBook })(BookModal);
+export default connect(null, { addBook })(BookModal);

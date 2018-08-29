@@ -1,4 +1,3 @@
-// import uuid from 'uuid';
 import { GET_BOOKS, ADD_BOOK, UPDATE_BOOK, DELETE_BOOK, BOOKS_LOADING, CLEAR_USER_BOOKS } from '../actions/types';
 
 const initialState = {
@@ -22,7 +21,6 @@ export default function(state = initialState, action) {
       };
     case UPDATE_BOOK:
       const updatedBooks = state.books.map(book => {
-        console.log(book._id);
         if (book._id === undefined) {
           if(book.id === action.payload.id){
             return { ...book, ...action.payload}
@@ -34,7 +32,6 @@ export default function(state = initialState, action) {
         }
         return book;
       });
-      console.log(updatedBooks)
       return {
         books: updatedBooks
       };

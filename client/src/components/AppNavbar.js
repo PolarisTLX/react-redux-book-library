@@ -3,10 +3,8 @@ import {
   Collapse,
   Navbar,
   NavbarToggler,
-  NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
   Container
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
@@ -38,21 +36,22 @@ class AppNavbar extends Component {
     const { isAuthenticated, user } = this.props.auth;
 
     const authLinks = (
-      <Nav className="ml-auto" navbar>
+      <Nav className="ml-auto auth-links" navbar>
         <NavItem>
-          <p className="nav-link">
+          <p className="nav-link username">
             <img
+              className="avatar"
               src='./user-avatar.png'
               height='30'
-              style={{display: "inline", marginRight: "10px"}} alt="avatar"
+              style={{display: "inline", marginRight: "15px"}} alt="avatar"
             />
-            Hi {user.name}!
+            <strong>Hello {user.name}!</strong>
           </p>
         </NavItem>
         <NavItem>
           <a
             href=""
-            onClick={this.onLogoutClick.bind(this)} className="nav-link"
+            onClick={this.onLogoutClick.bind(this)} className="nav-link logout-link"
           >
             Log Out
           </a>

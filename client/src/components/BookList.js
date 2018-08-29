@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Container, ListGroup, ListGroupItem } from 'reactstrap';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-// import uuid from 'uuid';
 import { connect } from 'react-redux';
 import { getBooks, addBook, deleteBook } from '../actions/bookActions';
 import { changeFilter } from '../actions/filterActions';
@@ -82,6 +81,9 @@ class BookList extends Component {
 
 BookList.propTypes = {
   getBooks: PropTypes.func.isRequired,
+  addBook: PropTypes.func.isRequired,
+  deleteBook: PropTypes.func.isRequired,
+  changeFilter: PropTypes.func.isRequired,
   library: PropTypes.object.isRequired,
   catFilter: PropTypes.object.isRequired,
   auth: PropTypes.object.isRequired

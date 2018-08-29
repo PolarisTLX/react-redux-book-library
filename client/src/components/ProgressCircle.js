@@ -1,9 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 class ProgressCircle extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
 
   render() {
     // Size of the enclosing square
@@ -43,6 +41,12 @@ class ProgressCircle extends React.Component {
       </svg>
     );
   }
+}
+
+ProgressCircle.propTypes = {
+  strokeWidth: PropTypes.string.isRequired,
+  sqSize: PropTypes.string.isRequired,
+  percentage: PropTypes.number.isRequired
 }
 
 export default ProgressCircle
