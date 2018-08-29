@@ -8,9 +8,8 @@ body {
   background-color: rgb(240, 240, 240);
 }
 
-
 .navbar-toggler {
- border-color: rgb(66,139,202);
+ border-color: #007bff;
 }
 
 .navbar-toggler:focus {
@@ -19,31 +18,92 @@ body {
 
 .navbar-toggler-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(66,139,202)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
- /*background-image with hexcode needed to change color of three lines (#FFFFFF is white) */
+}
+
+.auth-links {
+  margin-bottom: -22px;
+}
+.username {
+  margin-top: -5px;
+}
+.logout-link {
+  margin-top: -3px;
 }
 
 #category-select {
-  margin-bottom: 10px;
+  margin-bottom: 0.7rem;
 }
 
-.book-image {
-  float: right;
-  width: 100px;
-  height: 150px;
+
+.book {
+  margin-bottom: 0.7rem;
+}
+.book-details h5, .progress-text p, .chapter-div h6 {
+  color: grey;
+}
+
+@media only screen and (max-width: 500px) {
+  .buttons-row {
+    margin-top: 1rem;
+    margin-left: 0.7rem;
+  }
 }
 
 .remove-btn {
+  margin-left: -0.6rem;
   margin-right: 10px;
   float: left;
-  padding: 0px 10px;
-  font-size: 1.5rem;
+  padding-right: 1rem;
+  background-color: transparent;
+  border-color: transparent;
+  border-right: 2px solid rgb(240, 240, 240);
+  color: #007bff;
+  font-size: 1rem;
 }
 
 .edit-button {
-  padding: 0px 7px;
-  margin-bottom: 2rem;
-  font-size: 1.5rem;
+  margin-right: 10px;
+  margin-top: -0.1rem;
+  background-color: transparent;
+  border-color: transparent;
+  color: #007bff;
+  font-size: 1rem;
 }
+
+.update-progress-button {
+  padding: 7px;
+}
+@media only screen and (min-width: 750px) {
+  .update-progress-button {
+    transform: translate(55vw, -2.5rem);
+  }
+}
+@media only screen and (min-width: 800px) {
+  .update-progress-button {
+    transform: translate(52vw, -2.5rem);
+  }
+}
+@media only screen and (min-width: 900px) {
+  .update-progress-button {
+    transform: translate(45vw, -2.5rem);
+  }
+}
+@media only screen and (min-width: 1000px) {
+  .update-progress-button {
+    transform: translate(43vw, -1.5rem);
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .update-progress-button {
+    transform: translate(45vw, -1.5rem);
+  }
+}
+@media only screen and (min-width: 1400px) {
+  .update-progress-button {
+    transform: translate(38vw, -1.5rem);
+  }
+}
+
 
 .fade-enter {
   opacity: 0.01;
@@ -61,4 +121,60 @@ body {
 .fade-exit.active {
   opacity: 0.01;
   transition: opacity 1000ms ease-in;
+}
+
+
+/* CIRCULAR PROGRESS BAR: */
+@media only screen and (min-width: 600px) {
+  .progress-div {
+    border-right: 2px solid rgb(240, 240, 240);
+    margin-top: 2rem;
+    margin-left: -2rem;
+    margin-right: 2rem;
+  }
+}
+
+.progress-circle {
+  display: inline;
+  margin-top: -1.2rem;
+  margin-right: 1rem;
+  display: inline-block;
+}
+.progress-text {
+  display: inline-block;
+  transform: translateY(0.8rem);
+}
+
+#progressInput {
+  margin: 20px auto;
+  width: 30%;
+}
+
+.circle-background,
+.circle-progress {
+  fill: none;
+}
+
+.circle-background {
+  stroke: #ddd;
+}
+
+.circle-progress {
+  stroke: #007bff;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+/* END OF CIRCULAR PROGRESS BAR */
+
+.chapter-div {
+  margin-top: 1.5rem;
+}
+
+.mt-4 {
+  background-color: #007bff;
+  margin-bottom: 10px;
+}
+
+.mt-4:hover {
+  background-color: #0150a5;
 }

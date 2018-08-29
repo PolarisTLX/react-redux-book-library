@@ -2,13 +2,14 @@ const express = require('express');
 const router = express.Router();
 
 // Book Model
-const Book = require('../../models/Book');
+const Book = require('../models/Book');
 
 // @route GET api/books
 // @description Get All Books
 // @access Public
 router.get('/', (req, res) => {
-  Book.find( { user_id: req.query.user_id })
+  Book.find()
+    // likely don't need this date attribute in our books model
     .sort({ date: -1 })
     .then(books => res.json(books))
 });
@@ -17,26 +18,14 @@ router.get('/', (req, res) => {
 // @description Create An Book
 // @access Public
 router.post('/', (req, res) => {
-
-  const {
-    name,
-    author,
-    category,
-    current_chapter,
-    current_page,
-    total_pages,
-    user_id
-  } = req.body;
-
-
   const newBook = new Book({
-    name: name,
-    author: author,
-    category: category,
-    current_chapter: current_chapter,
-    current_page: current_page,
-    total_pages: total_pages,
-    user_id: user_id
+    // NOTE: youtuber video at 27min
+    name: req.body.name,
+    author: req.body.author,
+    category: req.body.category,
+    current_chapter: req.body.current_chapter,
+    current_page: req.body.current_page,
+    total_pages: req.body.total_pages
   });
 
   newBook.save().then(book => res.json(book));

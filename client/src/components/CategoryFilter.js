@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Input } from 'reactstrap';
+import PropTypes from 'prop-types';
 
 class CategoryFilter extends Component {
   state = {
@@ -29,6 +30,12 @@ class CategoryFilter extends Component {
       </Input>
     )
   }
+}
+
+CategoryFilter.propTypes = {
+  categories: PropTypes.array.isRequired,
+  selectedCategory: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired
 }
 
 export default CategoryFilter

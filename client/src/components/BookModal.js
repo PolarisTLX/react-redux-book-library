@@ -11,14 +11,17 @@ import {
 } from 'reactstrap';
 import { connect } from 'react-redux';
 import { addBook } from '../actions/bookActions';
-// import uuid from 'uuid';
+import PropTypes from 'prop-types';
 
 class BookModal extends Component {
   state = {
     modal: false,
     name: '',
     author: '',
-    category: 'Action'
+    category: 'Action',
+    current_chapter: '',
+    current_page: 0,
+    total_pages: 300,
   }
 
   toggle = () => {
@@ -35,10 +38,13 @@ class BookModal extends Component {
     event.preventDefault();
 
     const newBook = {
-      // id: uuid(),
       name: this.state.name,
       author: this.state.author,
-      category: this.state.category
+      category: this.state.category,
+      current_chapter: this.state.current_chapter,
+      current_page: this.state.current_page,
+      total_pages: this.state.total_pages,
+      user_id: this.props.user_id
     }
 
     // Add book via addBook action:
@@ -86,6 +92,15 @@ class BookModal extends Component {
                   placeholder="Example: J.R. Tolkien"
                   onChange={this.onChange}
                 />
+                <Label for="total_pages">Total Pages:</Label>
+                <Input
+                  type="number"
+                  name="total_pages"
+                  id="total_pages"
+                  placeholder="Example: 394"
+                  value={this.state.total_pages}
+                  onChange={this.onChange}
+                />
                 <Label for="category">Category:</Label>
                 <Input
                   type="select"
@@ -112,9 +127,10 @@ class BookModal extends Component {
   }
 }
 
+BookModal.propTypes = {
+  categories: PropTypes.array.isRequired,
+  user_id: PropTypes.string,
+  addBook: PropTypes.func.isRequired
+}
 
-const mapStateToProps = state => ({
-  book: state.book
-});
-
-export default connect(mapStateToProps, { addBook })(BookModal);
+export default connect(null, { addBook })(BookModal);
