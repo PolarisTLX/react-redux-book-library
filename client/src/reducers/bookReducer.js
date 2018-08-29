@@ -2,13 +2,7 @@
 import { GET_BOOKS, ADD_BOOK, UPDATE_BOOK, DELETE_BOOK, BOOKS_LOADING, CLEAR_USER_BOOKS } from '../actions/types';
 
 const initialState = {
-  books: [
-    // { id: uuid(), name: 'Lord of The Rings', author: 'Author Name', category: 'Action'},
-    // { id: uuid(), name: 'Harry Potter: And the Half Blood Prince', author: 'Author Name', category: 'Kids'},
-    // { id: uuid(), name: 'To Kill A Mockingbird', author: 'Author Name', category: 'History'},
-    // { id: uuid(), name: 'The Three Body Problem', author: 'Author Name', category: 'Sci-Fi'},
-    // { id: uuid(), name: 'War and Peace', author: 'Author Name', category: 'Learning'}
-  ],
+  books: [],
   loading: false
 };
 

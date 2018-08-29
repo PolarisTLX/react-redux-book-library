@@ -4,7 +4,6 @@ import { withRouter } from 'react-router-dom';
 import classnames from 'classnames';
 import { connect } from 'react-redux';
 import { registerUser } from '../../actions/authActions'
-// import TextFieldGroup from '../'
 
 class Register extends Component {
   constructor() {
@@ -51,7 +50,6 @@ class Register extends Component {
       password2: this.state.password2,
     }
 
-    // console.log(newUser);
     this.props.registerUser(newUser, this.props.history);
   }
 

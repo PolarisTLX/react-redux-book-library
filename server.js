@@ -5,7 +5,6 @@ const passport = require('passport');
 const path = require('path');
 
 const users = require('./routes/api/users');
-const signin = require('./routes/api/signin'); // old?
 const books = require('./routes/api/books');
 // const books = require('./routes/books');
 
@@ -31,7 +30,6 @@ app.use(passport.initialize());
 require('./config/passport.js')(passport);
 
 // Use Routes:
-// app.use('/account/signin', signin);
 app.use('/api/users', users);
 app.use('/api/books', books);
 // for the Rails backend:

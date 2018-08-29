@@ -54,21 +54,5 @@ const App = () => {
   );
 };
 
-// class App extends Component {
-//   render() {
-//     return (
-//       <Provider store={store}>
-//         <div className="App">
-//           <AppNavbar />
-//           <Container>
-//           <BookModal />
-//           <BookList />
-//         </Container>
-//         </div>
-//       </Provider>
-//     );
-//   }
-// }
-
 
 export default App;

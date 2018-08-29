@@ -19,18 +19,12 @@ body {
 
 .navbar-toggler-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(66,139,202)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
- /*background-image with hexcode needed to change color of three lines (#FFFFFF is white) */
 }
 
 #category-select {
   margin-bottom: 0.7rem;
 }
 
-/* .book-image {
-  float: right;
-  width: 100px;
-  height: 150px;
-} */
 
 .book {
   margin-bottom: 0.7rem;
@@ -46,8 +40,6 @@ body {
   }
 }
 
-
-
 .remove-btn {
   margin-left: -0.6rem;
   margin-right: 10px;
@@ -61,7 +53,6 @@ body {
 }
 
 .edit-button {
-  /* padding: 0px 7px; */
   margin-right: 10px;
   margin-top: -0.1rem;
   background-color: transparent;
@@ -88,11 +79,6 @@ body {
     transform: translate(45vw, -2.5rem);
   }
 }
-/* @media only screen and (max-width: 1000px) {
-  .update-progress-button {
-    transform: translate(43vw, -2rem);
-  }
-} */
 @media only screen and (min-width: 1000px) {
   .update-progress-button {
     transform: translate(43vw, -1.5rem);
@@ -143,7 +129,6 @@ body {
 
 .progress-circle {
   display: inline;
-  /* margin-bottom: 20px; */
   margin-top: -1.2rem;
   margin-right: 1rem;
   display: inline-block;
@@ -172,15 +157,17 @@ body {
   stroke-linecap: round;
   stroke-linejoin: round;
 }
-
-/* .circle-text {
-  font-size: 2.5em;
-  font-weight: bold;
-  fill: #007bff;
-} */
 /* END OF CIRCULAR PROGRESS BAR */
 
 .chapter-div {
   margin-top: 1.5rem;
-  /* margin-left: 2rem; */
+}
+
+.mt-4 {
+  background-color: #007bff;
+  margin-bottom: 10px;
+}
+
+.mt-4:hover {
+  background-color: #0150a5;
 }

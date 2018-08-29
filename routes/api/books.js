@@ -20,7 +20,6 @@ router.get('/', (req, res) => {
 // @access Public
 router.post('/', (req, res) => {
   const newBook = new Book({
-    // NOTE: youtuber video at 27min
     name: req.body.name,
     author: req.body.author,
     category: req.body.category,
